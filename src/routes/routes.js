@@ -2,15 +2,14 @@ import React from 'react';
 import {
   Route,
   Switch,
-  BrowserRouter as Router,
 } from 'react-router-dom';
 import Home from '../pages/Home';
 import Rockets from '../pages/Rockets';
 import Launches from '../pages/Launches';
 import NoMatch from '../pages/NoMatch';
 
-const Routes = () => (
-
+function Routes() {
+  return (
     <Switch>
       <Route exact path="/">
         <Home />
@@ -23,6 +22,7 @@ const Routes = () => (
       <Route path="*" component={NoMatch} />
     </Switch>
 
-);
+  )
+};
 
 export default Routes;
