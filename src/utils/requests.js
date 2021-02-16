@@ -5,3 +5,11 @@ const createUrl = (base, path) => `${base}${path}`;
 export const getInfo = () => [
   createUrl(BASE_URL, "/info")
 ];
+
+export const getRockets = () => [
+  createUrl(BASE_URL, "/rockets")
+];
+
+export const getLaunches = () => [
+  createUrl(BASE_URL, "/launches")
+];

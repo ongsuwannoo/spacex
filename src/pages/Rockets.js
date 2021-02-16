@@ -1,30 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import useRockets from '../utils/useRockets';
 
 function Rockets() {
   {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        const result = await axios(
-          'https://api.spacexdata.com/v3/rockets',
-        );
-
-        setData(result.data);
-        console.log(result.data);
-      };
-
-      fetchData();
-    }, []);
+    const [rockets, error] = useRockets();
 
     return (
       <ul>
-        {data.map(rockets => (
-          <li key={rockets.id}>
-            {rockets.rocket_name}
-          </li>
-        ))}
+        {error !== null
+          ? <p>Error fetching Info: {error}</p>
+          :
+          rockets.map(rocket => (
+            <li key={rocket.id}>
+              {rocket.rocket_name}
+            </li>
+          ))
+        }
       </ul>
     )
   }
