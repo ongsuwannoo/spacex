@@ -1,15 +1,17 @@
 import React from 'react';
 import { NavLink, BrowserRouter as Router } from 'react-router-dom';
-import '../styles/navbar.css';
+import '../styles/Navbar.css';
 
 const Navbar = () => (
     <nav className="navbar">
       <div className="nav">
         <input type="checkbox" id="nav-check"></input>
         <div className="nav-header">
-          <div className="nav-title">
-            JoGeek
-                </div>
+          <NavLink 
+          to="/" 
+          className="nav-title"
+          style={{textDecoration: "none"}}
+          >SPACEX</NavLink>
         </div>
         <div className="nav-btn">
           <label for="nav-check">
