@@ -16,7 +16,7 @@ body {
 }
 
 .page-content {
-    display: grid;
+    display: inline-grid;
     grid-gap: 1rem;
     padding: 1rem;
     margin: 0 auto;
@@ -25,13 +25,13 @@ body {
 
 @media (min-width: 600px) {
     .page-content {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
 @media (min-width: 800px) {
     .page-content {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

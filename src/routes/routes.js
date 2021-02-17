@@ -7,7 +7,7 @@ import Home from '../pages/Home';
 import Rockets from '../pages/Rockets';
 import Launches from '../pages/Launches';
 import NoMatch from '../pages/NoMatch';
-import Detail from "../pages/Detail";
+import Detail from "../pages/RocketDetail";
 
 function Routes() {
   return (
@@ -15,7 +15,7 @@ function Routes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path={"/rockets/detail/:rocketId"}>
+      <Route path="/rockets/detail/:rocketId">
         <Detail />
       </Route>
       <Route path="/rockets">

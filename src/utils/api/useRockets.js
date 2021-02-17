@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import useApiResult from "./useApiResult";
-import { getRockets } from "./requests";
+import useApiResult from "../useApiResult";
+import { getRockets } from "../requests";
 
 const useRockets = () => {
   const request = useMemo(() => getRockets(), []);

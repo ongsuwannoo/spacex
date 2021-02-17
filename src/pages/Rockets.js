@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useRockets from '../utils/useRockets';
+import useRockets from '../utils/api/useRockets';
 import Card from '../components/Card';
 
 function Rockets() {

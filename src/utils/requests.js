@@ -13,3 +13,7 @@ export const getRockets = () => [
 export const getLaunches = () => [
   createUrl(BASE_URL, "/launches")
 ];
+
+export const getRocketsById = (id) => [
+  createUrl(BASE_URL, `/rockets/${id}`)
+];

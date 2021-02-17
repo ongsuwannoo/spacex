@@ -1,5 +1,5 @@
 import React from 'react';
-import useInfo from '../utils/useInfo';
+import useInfo from '../utils/api/useInfo';
 
 const Home = () => {
 
