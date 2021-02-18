@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRockets } from '../utils/useAPIs';
 import Card from '../components/Card';
+import Loading from '../components/Loading';
 
 function Rockets() {
   {
@@ -9,12 +10,14 @@ function Rockets() {
     return (
       <>
         <main className="page-content">
-          {error !== null || rockets === null
+          {error !== null
             ? <p>Error fetching Info: {error}</p>
-            :
-            rockets.map(rocket => (
-              <Card rocket={rocket} />
-            ))
+            : rockets === null
+              ? <Loading />
+              :
+              rockets.map(rocket => (
+                <Card rocket={rocket} key={rocket.rocket_id} />
+              ))
           }
         </main>
       </>

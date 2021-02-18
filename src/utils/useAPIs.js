@@ -4,7 +4,8 @@ import {
   getInfo,
   getRockets,
   getRocketsById,
-  getLaunches
+  getLaunches,
+  getLauncheById
 } from "./requests";
 
 const useInfo = () => {
@@ -27,4 +28,9 @@ const useLaunches = (option) => {
   return useApiResult(request);
 };
 
-export { useRocketsId, useRockets, useInfo, useLaunches };
+const useLauncheId = (id) => {
+  const request = useMemo(() => getLauncheById(id), []);
+  return useApiResult(request);
+};
+
+export { useRocketsId, useRockets, useInfo, useLaunches, useLauncheId };

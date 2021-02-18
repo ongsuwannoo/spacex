@@ -1,20 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
-:root {
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-    --font-sans: "Rubik", sans-serif;
-    --font-serif: "Cardo", serif;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    display: grid;
-    /* place-items: center; */
-}
-
 .page-content {
     display: inline-grid;
     grid-gap: 1rem;
@@ -48,11 +31,18 @@ body {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 600px) {
+@media (max-height: 731px) {
     .card {
-        height: 350px;
+        height: 300px
     }
 }
+
+@media (max-height: 700px) {
+    .card {
+        height: 265px
+    }
+}
+
 
 .card:before {
     content: "";
@@ -100,6 +90,7 @@ body {
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1.2;
+    letter-spacing: .3em;
 }
 
 .copy {

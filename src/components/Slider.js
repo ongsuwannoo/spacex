@@ -1,13 +1,30 @@
+import { useEffect } from "react";
+import '../styles/Slider.css';
+
 export default (props) => {
+
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = "/JSslider.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+
   return (
-    <div id="slider">
+    <div class="slideshow-container">
       {
         props.images.map(image => (
-          <div>
-            <img src={image} alt=""></img>
+          <div class="mySlides fade">
+            <img className="imgslide" src={image} ></img>
           </div>
         ))
       }
-    </div>
+    </div >
   )
 }

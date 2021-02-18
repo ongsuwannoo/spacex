@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useLaunches } from '../utils/useAPIs';
-import Loading from '../components/Loading';
 import '../styles/Launches.css'
+import TableLaunches from '../components/TableLaunches';
+
 function Rockets() {
   {
     const [option, setOption] = useState({ limit: 10 });
-
     const [launches, error] = useLaunches(option);
 
     const [limit, setLimit] = useState(10);
     const [sort, setSort] = useState("flight_number");
     const [order, setOrder] = useState("asc");
 
-    const [launch_year, setLaunch_year] = useState("");
+    const [launch_year_start, setLaunch_year_start] = useState("");
+    const [launch_year_end, setLaunch_year_end] = useState("");
     const [rocket_name, setRocket_name] = useState("");
     const [launch_success, setLaunch_success] = useState("");
 
@@ -31,10 +32,11 @@ function Rockets() {
     const HandleSubmit = (evt) => {
       evt.preventDefault();
       setOption({
-        limit: limit,
         sort: sort,
         order: order,
-        launch_year: launch_year,
+        limit: limit,
+        start: launch_year_start,
+        end: launch_year_end + '-12-31',
         rocket_name: rocket_name,
         launch_success: launch_success
       })
@@ -44,26 +46,6 @@ function Rockets() {
       <div>
         <form onSubmit={HandleSubmit}>
           <table>
-            <tr>
-              <td>limit:</td>
-              <td>
-                <input
-                  type="text"
-                  value={limit}
-                  onChange={e => setLimit(e.target.value)}
-                  placeholder="10"
-                />
-              </td>
-              <td>Year:</td>
-              <td>
-                <input
-                  type="text"
-                  value={launch_year}
-                  onChange={e => setLaunch_year(e.target.value)}
-                  placeholder="2008"
-                />
-              </td>
-            </tr>
             <tr>
               <td>sort:</td>
               <td>
@@ -76,17 +58,22 @@ function Rockets() {
                   <option value="launch_year">Year</option>
                 </select>
               </td>
-              <td>Rocket name:</td>
+
+              <td>Year:</td>
               <td>
                 <input
                   type="text"
-                  value={rocket_name}
-                  onChange={e => setRocket_name(e.target.value)}
-                  placeholder="Falcon 1"
+                  value={launch_year_start}
+                  onChange={e => setLaunch_year_start(e.target.value)}
+                  placeholder="2008"
+                /> - <input
+                  type="text"
+                  value={launch_year_end}
+                  onChange={e => setLaunch_year_end(e.target.value)}
+                  placeholder="2009"
                 />
               </td>
             </tr>
-
             <tr>
               <td>order:</td>
               <td>
@@ -97,6 +84,26 @@ function Rockets() {
                   <option value="asc">Ascending </option>
                   <option value="desc">Descending</option>
                 </select>
+              </td>
+              <td>Rocket name:</td>
+              <td>
+                <input
+                  type="text"
+                  value={rocket_name}
+                  onChange={e => setRocket_name(e.target.value)}
+                  placeholder="Falcon 1"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>limit:</td>
+              <td>
+                <input
+                  type="text"
+                  value={limit}
+                  onChange={e => setLimit(e.target.value)}
+                  placeholder="10"
+                />
               </td>
               <td>Success</td>
               <td>
@@ -110,35 +117,17 @@ function Rockets() {
                 </select>
               </td>
             </tr>
+            <tr>
+              <td> </td><td> </td>
+              <td><input type="submit" value="Submit" /></td>
+              <td></td>
+            </tr>
           </table>
-          <input type="submit" value="Submit" />
         </form>
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Mission</th>
-            <th>Rocket name</th>
-            <th>Year</th>
-            <th>Success</th>
-          </tr>
-
-          {error !== null
-            ? <p>Error fetching Info: {error}</p>
-            : launches === null
-              ? <Loading />
-              :
-              launches.map(launche => (
-                <tr>
-                  <td>{launche.flight_number}</td>
-                  <td>{launche.mission_name}</td>
-                  <td>{launche.rocket.rocket_name}</td>
-                  <td>{launche.launch_year}</td>
-                  <td>{launche.launch_success ? 'Success' : 'Failed'}</td>
-                </tr>
-              ))
-          }
-
-        </table>
+        <TableLaunches
+          launches={launches}
+          error={error}
+        />
       </div>
     )
   }

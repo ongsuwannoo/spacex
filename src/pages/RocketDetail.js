@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useRocketsId } from '../utils/useAPIs';
 import Slider from '../components/Slider';
-import '../styles/Slider.css'
 
-export default () => {
+export default (props) => {
 
   let { rocketId } = useParams();
 

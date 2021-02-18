@@ -3,6 +3,6 @@ import '../styles/Loading.css';
 
 export default () => {
   return (
-    <div class="spinner"></div>
+    <div className="spinner"></div>
   )
 }

@@ -1,48 +1,50 @@
-div#slider {
-    overflow: hidden;
-    margin: auto;
-    width: 50%;
-    max-width: 700px;
-    max-height: 400px;
+.mySlides {
+    display: none;
 }
 
-div#slider div {
+.imgslide {
+    vertical-align: middle;
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 500px;
+    height: 337px;
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    max-width: 1000px;
     position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    font-size: 0;
-    animation: 20s slider infinite;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-div#slider div img {
-    width: 20%;
-    float: left;
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
-@keyframes slider {
-    0% {
-        left: 0%;
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
     }
-    20% {
-        left: 0%;
+    to {
+        opacity: 1
     }
-    25% {
-        left: -100%;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
     }
-    45% {
-        left: -100%;
-    }
-    50% {
-        left: -200%;
-    }
-    70% {
-        left: -200%;
-    }
-    75% {
-        left: -300%;
-    }
-    95% {
-        left: -300%;
+    to {
+        opacity: 1
     }
 }

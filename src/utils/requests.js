@@ -19,3 +19,7 @@ export const getLaunches = (option) => [
 export const getRocketsById = (id) => [
   createUrl(BASE_URL, `/rockets/${id}`)
 ];
+
+export const getLauncheById = (id) => [
+  createUrl(BASE_URL, `/launches/${id}`)
+];

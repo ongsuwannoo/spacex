@@ -14,7 +14,7 @@ const Navbar = () => (
           >SPACEX</NavLink>
         </div>
         <div className="nav-btn">
-          <label for="nav-check">
+          <label >
             <span></span>
             <span></span>
             <span></span>
@@ -46,7 +46,6 @@ const Navbar = () => (
         </div>
       </div>
     </nav>
-
 );
 
 export default Navbar;

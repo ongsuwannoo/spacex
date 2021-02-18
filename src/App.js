@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Routes from './routes/routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RequestProvider } from "./utils/requestContainer";
+import './App.css';
 
 const App = () => (
   <Router basename="/spacex">
