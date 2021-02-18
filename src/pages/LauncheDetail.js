@@ -20,9 +20,9 @@ export default () => {
           </>
           : <>
             <Slider images={detail.links.flickr_images} />
-            <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
+            {/* <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
               <h3>{detail.rocket.rocket_name}</h3>
-            </NavLink>
+            </NavLink> */}
           </>
       }
 

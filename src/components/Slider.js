@@ -6,7 +6,7 @@ export default (props) => {
   useEffect(() => {
     const script = document.createElement('script');
 
-    script.src = "/JSslider.js";
+    script.src = "/spacex/JSslider.js";
     script.async = true;
 
     document.body.appendChild(script);
