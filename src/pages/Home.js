@@ -1,5 +1,5 @@
 import React from 'react';
-import useInfo from '../utils/api/useInfo';
+import { useInfo } from '../utils/useAPIs';
 
 const Home = () => {
 
@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      {error !== null
+      {error !== null || info === null
         ? <p>Error fetching Info: {error}</p>
         :
         <>

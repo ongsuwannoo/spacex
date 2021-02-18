@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useRequest } from "./requestContainer";
 
 const useApiResult = (request) => {
-  const [results, setResults] = useState();
-  const [error, setError] = useState();
-
+  const [results, setResults] = useState(null);
+  const [error, setError] = useState(null);
   const requester = useRequest();
 
   useEffect(() => {

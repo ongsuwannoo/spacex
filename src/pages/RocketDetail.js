@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import useRocketsId from '../utils/api/useRocketsId';
+import { useRocketsId } from '../utils/useAPIs';
 import Slider from '../components/Slider';
 import '../styles/Slider.css'
 
@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <div>
-      {error !== null
+      {error !== null || details === null
         ? <p>Error fetching Info: {error}</p>
         : <Slider images={details.flickr_images} />
       }
