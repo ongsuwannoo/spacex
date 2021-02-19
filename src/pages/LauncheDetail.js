@@ -16,13 +16,15 @@ export default () => {
         : detail.links.flickr_images.length == 0
           ? <>
             <Slider images={[detail.links.mission_patch_small]} />
-            <h3>{detail.rocket_name}</h3>
+            <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
+              <h3>{detail.rocket.rocket_name}</h3>
+            </NavLink>
           </>
           : <>
             <Slider images={detail.links.flickr_images} />
-            {/* <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
+            <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
               <h3>{detail.rocket.rocket_name}</h3>
-            </NavLink> */}
+            </NavLink>
           </>
       }
 

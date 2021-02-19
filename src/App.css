@@ -2,13 +2,13 @@
 :root {
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
-    --font-sans: 'Roboto', sans-serif;
-    --font-serif: 'Roboto', sans-serif;
+    /* --font-sans: 'Roboto', sans-serif;
+    --font-serif: 'Roboto', sans-serif; */
+    --font-noto: "Noto Sans Thai", sans-serif;
 }
 
 * {
   box-sizing: border-box;
-  font-family: var(--font-sans);
 }
 
 body {
@@ -17,6 +17,6 @@ body {
 }
 
 ._main {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
