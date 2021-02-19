@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 :root {
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
     /* --font-sans: 'Roboto', sans-serif;
     --font-serif: 'Roboto', sans-serif; */
-    --font-noto: "Noto Sans Thai", sans-serif;
+    --font-noto: 'Noto Sans';
 }
 
 * {
@@ -17,6 +17,5 @@ body {
 }
 
 ._main {
-  margin-right: 20px;
-  margin-left: 20px;
+  
 }

@@ -20,7 +20,8 @@ export default (props) => {
         <style>
           {`\
               .card:nth-child(${props.rocket.id}):before {\
-                  background-image: url(${props.rocket.flickr_images[0]});\
+                  background-image: url(${props.rocket.id === 1 ? props.rocket.flickr_images[0] : props.rocket.flickr_images[1]});\
+                  background-position: 50% 0;
               }\
           `}
         </style>
