@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
+:root{
+    --cl1: #1b1e32;
+    --cl2: #131923;
+    --cl3: #ffffff;
+    --cl4: #f4fc29;
+    --font-noto: "Noto Sans Thai", sans-serif;
+    --font-cardo: 'Cardo', serif;
+}
+
+---------------------------------------
+/* font-size */
+
+.fs-20{
+    font-size: 1vw;
+}
+.fs-25{
+    font-size: 1.5vw;
+}
+.fs-30{
+    font-size: 2vw;
+}
+.fs-40{
+    font-size: 3vw;
+}
+.fs-50{
+    font-size: 3.5vw;
+}
+---------------------------------------
+
+body{
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+.sec1{
+    position: relative;
+    top: 0;
+}
+.homeImg {
+    position: relative;
+    margin: 0;
+    width: 100vw;
+    /* top: -70px; */
+    z-index: -1;
+}
+.homeInfo1{
+    position: absolute;
+    color:var(--cl3);
+    bottom: 5vw;
+    left: 2vw;
+    font-family: var(--font-cardo);
+}
+.homeInfo2{
+    position: absolute;
+    color:var(--cl3);
+    text-align: end;
+    right: 2vw;
+    top: 3vw;
+    font-family: var(--font-cardo);
+}
+
+.sec2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 4vw; 
+}
+.elonImg{
+    position: relative;
+    width: 20vw;
+    border-radius: 50%;
+}
+.homeInfo3{
+    font-family: var(--font-noto);
+    position: relative;
+    left: 2vw;
+    color: var(--cl2);
+}
+.contact{
+    width: 3vw;
+    margin-right: 1vw;
+}
+p{
+    margin: 0;
+}
+
+

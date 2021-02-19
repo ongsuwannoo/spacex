@@ -1,9 +1,16 @@
+
+:root{
+    --cl1: #1b1e32;
+    --cl2: #131923;
+    --cl3: #ffffff;
+    --cl4: #f4fc29;
+}
 .navbar__link {
   cursor: pointer;
   text-decoration: none;
   letter-spacing: .3em;
   text-indent: .3em;
-  color: #181818;
+  color: var(--cl3);
   border-bottom: 3px solid transparent;
 }
 
@@ -12,15 +19,15 @@
 }
 
 .navbar__link--active {
-  border-bottom: 3px solid #29b6f6;
+  border-bottom: 4px solid var(--cl4);
   transition: border-bottom .5s ease-in-out;
-  color: #efefef;
+  color: var(--cl3);
 }
 .nav {
   font-family: 'Roboto', sans-serif;
   height: 50px;
   width: 100%;
-  background-color: #4d4d4d;
+  background-color: var(--cl1);
   position: relative;
 }
 
@@ -86,7 +93,7 @@
       position: absolute;
       display: block;
       width: 100%;
-      background-color: #333;
+      background-color: var(--cl1);
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
@@ -103,5 +110,6 @@
   .nav>#nav-check:checked~.nav-links {
       height: calc(100vh - 50px);
       overflow-y: auto;
+      z-index: 5;
   }
 }
