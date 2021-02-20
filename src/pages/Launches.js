@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLaunches } from '../utils/useAPIs';
 import '../styles/Launches.css'
 import TableLaunches from '../components/TableLaunches';
@@ -6,7 +6,9 @@ import TableLaunches from '../components/TableLaunches';
 function Rockets() {
   {
     const [option, setOption] = useState({ limit: 10 });
+    const [isLoading, setIsLoading] = useState(false);
     const [launches, error] = useLaunches(option);
+
 
     const [limit, setLimit] = useState(10);
     const [sort, setSort] = useState("flight_number");
@@ -16,6 +18,12 @@ function Rockets() {
     const [launch_year_end, setLaunch_year_end] = useState("");
     const [rocket_name, setRocket_name] = useState("");
     const [launch_success, setLaunch_success] = useState("");
+    const [page, setPage] = useState({ offset: 0 });
+    const [handlePage, setHandlePage] = useState(0);
+
+    useMemo(() => {
+      setIsLoading(false);
+    }, [launches]);
 
     const handleChangeSort = (e) => {
       setSort(e.target.value);
@@ -29,12 +37,52 @@ function Rockets() {
       setLaunch_success(e.target.value);
     }
 
+    const handleChangePage = async (evt) => {
+      evt.preventDefault();
+      setIsLoading(true);
+
+      if (handlePage !== 0 && handlePage !== 110) {
+        setOption({
+          ...option,
+          offset: page.offset + handlePage * 10,
+        })
+      }
+
+      else {
+        setOption({
+          ...option,
+          offset: handlePage,
+        })
+      }
+
+
+      if (handlePage === 0) {
+        setPage({
+          offset: handlePage
+        })
+      }
+
+      else if (handlePage === 110) {
+        setPage({
+          offset: handlePage
+        })
+      }
+
+      else {
+        setPage({
+          offset: page.offset + handlePage * 10
+        })
+      }
+    }
+
     const HandleSubmit = (evt) => {
+      setIsLoading(true);
       evt.preventDefault();
       setOption({
         sort: sort,
         order: order,
         limit: limit,
+        offset: page.offset,
         start: launch_year_start,
         end: launch_year_end + '-12-31',
         rocket_name: rocket_name,
@@ -125,9 +173,17 @@ function Rockets() {
           </table>
         </form>
         <TableLaunches
+          isLoading={isLoading}
           launches={launches}
           error={error}
         />
+        <form onSubmit={handleChangePage}>
+          <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)} >&lt;&lt;</button>
+          <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>&lt;</button>
+          {' ' + ((page.offset / 10) + 1) + ' '}
+          <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>&gt;</button>
+          <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)} >&gt;&gt;</button>
+        </form>
       </div>
     )
   }

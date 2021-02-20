@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Loading from '../components/Loading';
 
-export default ({ launches, error }) => {
+export default ({ launches, error, isLoading }) => {
   let { path, url } = useRouteMatch();
 
   return (
@@ -18,10 +18,9 @@ export default ({ launches, error }) => {
         <th>Success</th>
         <th></th>
       </tr>
-
       {error !== null
         ? <p>Error fetching Info: {error}</p>
-        : launches === null
+        : launches === null || isLoading
           ? <Loading />
           :
           launches.map(launche => (
