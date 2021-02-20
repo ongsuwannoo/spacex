@@ -92,11 +92,11 @@ function Rockets() {
 
     return (
       <div>
-        <form onSubmit={HandleSubmit}>
+        <form onSubmit={HandleSubmit} className="tableInput">
           <table>
             <tr>
-              <td>sort:</td>
               <td>
+                <label>Sort</label>
                 <select
                   value={sort}
                   onChange={handleChangeSort}
@@ -107,23 +107,9 @@ function Rockets() {
                 </select>
               </td>
 
-              <td>Year:</td>
-              <td>
-                <input
-                  type="text"
-                  value={launch_year_start}
-                  onChange={e => setLaunch_year_start(e.target.value)}
-                  placeholder="2008"
-                /> - <input
-                  type="text"
-                  value={launch_year_end}
-                  onChange={e => setLaunch_year_end(e.target.value)}
-                  placeholder="2009"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>order:</td>
+
+
+              {/* <td>order:</td>
               <td>
                 <select
                   value={order}
@@ -132,9 +118,9 @@ function Rockets() {
                   <option value="asc">Ascending </option>
                   <option value="desc">Descending</option>
                 </select>
-              </td>
-              <td>Rocket name:</td>
+              </td> */}
               <td>
+                <label>Rocket Name</label>
                 <input
                   type="text"
                   value={rocket_name}
@@ -142,33 +128,43 @@ function Rockets() {
                   placeholder="Falcon 1"
                 />
               </td>
-            </tr>
-            <tr>
-              <td>limit:</td>
               <td>
+                <label>Success</label>
+                <select
+                  value={launch_success}
+                  onChange={handleChangeSuccess}
+                >
+                  <option value="" selected="selected" disabled="disabled">Success or Failed</option>
+                  <option value="true">Success</option>
+                  <option value="false">Failed</option>
+                </select>
+              </td>
+              <td>
+                <label>Year</label>
                 <input
+                  className="filter"
                   type="text"
+                  value={launch_year_start}
+                  onChange={e => setLaunch_year_start(e.target.value)}
+                  placeholder="2008"
+                /> </td><td><label>to</label> <input
+                  type="text"
+                  value={launch_year_end}
+                  onChange={e => setLaunch_year_end(e.target.value)}
+                  placeholder="2009"
+                />
+              </td>
+              <td>
+                <label>Limit</label>
+                <input
+                  type="number"
                   value={limit}
                   onChange={e => setLimit(e.target.value)}
                   placeholder="10"
                 />
               </td>
-              <td>Success</td>
-              <td>
-                <select
-                  value={launch_success}
-                  onChange={handleChangeSuccess}
-                >
-                  <option value=""></option>
-                  <option value="true">Success</option>
-                  <option value="false">Failed</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td> </td><td> </td>
+              
               <td><input type="submit" value="Submit" /></td>
-              <td></td>
             </tr>
           </table>
         </form>
@@ -177,12 +173,18 @@ function Rockets() {
           launches={launches}
           error={error}
         />
-        <form onSubmit={handleChangePage}>
-          <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)} >&lt;&lt;</button>
-          <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>&lt;</button>
-          {' ' + ((page.offset / 10) + 1) + ' '}
-          <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>&gt;</button>
-          <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)} >&gt;&gt;</button>
+        <form onSubmit={handleChangePage} className="f-4 page">
+          <div className="page">
+            <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)}><b>FIRST</b></button>
+            <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>
+              <img src="/spacex/icon/back.svg" style={{ width: "50%" }} />
+            </button>
+            {' ' + ((page.offset / 10) + 1) + ' '}
+            <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>
+              <img src="/spacex/icon/back.svg" style={{ width: "50%", transform: "rotate(180deg)" }} />
+            </button>
+            <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)}><b>LAST</b></button>
+          </div>
         </form>
       </div>
     )

@@ -13,7 +13,7 @@ export default ({ launches, error, isLoading }) => {
       <tr>
         <th>ID</th>
         <th>Mission</th>
-        <th>Rocket name</th>
+        <th>Rocket</th>
         <th>Year</th>
         <th>Success</th>
         <th>Detail</th>
