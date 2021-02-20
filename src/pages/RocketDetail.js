@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useRocketsId } from '../utils/useAPIs';
 import Slider from '../components/Slider';
+import { numberWithCommas } from '../utils/functions';
 
 export default (props) => {
 
@@ -11,64 +12,125 @@ export default (props) => {
   return (
     <div>
       {error !== null || details === null
-        ? <p>Error fetching Info: {error}</p>
+        ? <p>Error fetching detail: {error}</p>
         : (
           <div className="box rocket-detail-box">
             <div className="box-bg">
               <div style={{ position: "relative" }}>
-                <div className="home-bg-content-1">
+                <div className="home-bg-content-1 detail">
+                  <p>
+                    <label className="f-3 rocket-name">
+                      {details.rocket_name}
+                    </label>
+                  </p>
                   <p>
                     <label className="f-5">
-                      No data
+                      {details.first_flight}
                     </label>
                     <br />
-                    COO
+                    First Flight
                     </p>
                   <p></p>
                   <p>
                     <label className="f-5">
-                      No data
+                      {numberWithCommas(details.cost_per_launch)}
                     </label>
                     <br />
-                    Founder / CEO / CTO
+                    Cost / Launch
+                  </p>
+                  <p></p>
+                  <p>
+                    <label className="f-5">
+                      {details.country}
+                    </label>
+                    <br />
+                    Country
                   </p>
                 </div>
-                <div className="home-bg-content-2">
+                <div className="home-bg-content-2 detail">
                   <p>
-                    <label className="f-5">
-                      No data
-                </label>
+                    <label className="f-5 detail-rocket">
+                      Detail
+                    </label>
+                  </p>
+                  <p>
+                    <label className="f-5 detail-descript">
+                      <label>HEIGHT</label>
+                      <label>
+                        {details.second_stage.payloads.composite_fairing.height.meters} m /
+                        {details.second_stage.payloads.composite_fairing.height.feet} ft
+                      </label>
+                    </label>
                     <br />
-                Employees
-              </p>
+                  </p>
                   <p></p>
                   <p>
-                    <label className="f-5">
-                      No data
+                    <label className="f-5 detail-descript">
+                      DIAMETER {details.diameter.meters} m / {details.diameter.feet} ft
                 </label>
                     <br />
-                  Valuation
-              </p>
+                  </p>
                   <p></p>
                   <p>
-                    <label className="f-5">
-                      No data
-                </label>
+                    <label className="f-5 detail-descript">
+                      MASS {details.mass.kg} kg / {details.mass.lb} lb
+                    </label>
                     <br />
-                  Headquarters
-              </p>
+                  </p>
+                  <p></p>
+                  <p>
+                    <label className="f-5 detail-descript">
+                      PAYLOAD WEIGHTS
+                    </label>
+                    <br />
+                  </p>
+                  <p className="payload-detail">
+                    {details.payload_weights.map(payload => (
+                      <>
+                        <label className="f-5">
+                          {payload.name} {payload.kg} kg / {payload.lb} lb
+                        </label>
+                        <br />
+                      </>
+                    ))}
+                  </p>
                 </div>
               </div>
 
-              <img className="home-bg rocket-detail" src={details.flickr_images[2]} />
-              <div className="home-content">
-                <div className="home-box-elon">
-                  <img className="home-elon" src='/spacex/media/Elon_Musk.jpg' />
-                </div>
-                <div className="home-box-info">
-                  <div className="home-info-detail">
-                    <p>No data</p>
+              <img className="home-bg rocket-detail" src={details.flickr_images[1]} />
+              <div className="home-content rocket">
+                <div className="home-info-detail stage-rocket">
+                  <div className="f-4">First Stage</div>
+                  <div className="detail-stage">
+                    <div>Number Of Engunes</div>
+                    <div>
+                      {details.first_stage.engines}
+                    </div>
                   </div>
+
+                  <div className="detail-stage">
+                    <div>Fuel</div>
+                    <div>
+                      {details.first_stage.fuel_amount_tons} tons
+                    </div>
+                  </div>
+
+                  <div className="detail-stage">
+                    <div>Thrust Sea Level</div>
+                    <div>
+                      {details.first_stage.thrust_sea_level.kN} kN / {details.first_stage.thrust_sea_level.lbf} lbf
+                    </div>
+                  </div>
+
+                  <div className="detail-stage">
+                    <div>Thrust Sea Level</div>
+                    <div>
+                      {details.first_stage.thrust_vacuum.kN} kN / {details.first_stage.thrust_sea_level.lbf} lbf
+                    </div>
+                  </div>
+                </div>
+                <div className="home-info-detail stage-rocket">
+                  <div className="f-4">Second Stage</div>
                 </div>
               </div>
             </div>

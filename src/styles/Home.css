@@ -19,6 +19,10 @@ body {
     font-family: 'Cardo';
 }
 
+.home-bg-content-1.detail {
+    top: 20vh;
+}
+
 .home-bg-content-2 {
     position: absolute;
     right: 0;
@@ -29,9 +33,27 @@ body {
     text-align: right;
 }
 
-.f-5 {
-    font-size: 20px;
-    font-weight: bold;
+.home-bg-content-2.detail {
+    top: 50vh;
+    text-align: left;
+}
+
+.rocket-name {
+    font-family: var(--font-noto);
+    border-bottom: 3px solid var(--cl4);
+    width: 250px;
+    display: block ruby;
+    margin-bottom: 30px;
+    height: 75px;
+}
+
+.detail-rocket {
+    font-family: var(--font-noto);
+    border-bottom: 3px solid var(--cl4);
+    width: 400px;
+    height: 41px;
+    display: block ruby;
+    margin-right: 35px;
 }
 
 .home-bg {
@@ -44,7 +66,11 @@ body {
 .home-bg.rocket-detail {
     height: 100vh;
     object-fit: cover;
-    object-position: 70% 0;
+    object-position: 70% 0%;
+}
+
+.payload-detail {
+    padding-left: 20px;
 }
 
 .home-content {
@@ -56,6 +82,29 @@ body {
     padding-top: 40px;
     padding-right: 50px;
     line-height: 1.5;
+}
+
+.home-content.rocket {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid;
+    width: 99vw;
+    height: 50vh;
+    margin-right: 50px;
+}
+
+.home-info-detail.stage-rocket {
+    border: 2px solid green;
+    width: 50vw;
+    text-align: center;
+}
+
+.detail-stage {
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .home-box-elon {

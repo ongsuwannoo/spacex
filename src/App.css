@@ -19,3 +19,27 @@ body {
 ._main {
   font-family: var(--font-noto);
 }
+.f-5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.f-5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.f-4 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.f-3 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.f-2 {
+  font-size: 45px;
+  font-weight: bold;
+}
+.f-1 {
+  font-size: 50px;
+  font-weight: bold;
+}
