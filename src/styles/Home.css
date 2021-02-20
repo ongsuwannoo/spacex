@@ -1,6 +1,14 @@
+body {
+    overflow-x: hidden;
+}
+
 .box {
     position: fixed;
     top: 0;
+}
+
+.rocket-detail-box {
+    position: absolute;
 }
 
 .home-bg-content-1 {
@@ -29,6 +37,12 @@
 .home-bg {
     width: 100vw;
     height: 60vh;
+    object-fit: cover;
+    object-position: 70% 0;
+}
+
+.home-bg.rocket-detail {
+    height: 100vh;
     object-fit: cover;
     object-position: 70% 0;
 }

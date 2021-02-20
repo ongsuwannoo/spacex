@@ -5,18 +5,6 @@
     margin: 0 auto;
 }
 
-@media (min-width: 600px) {
-    .page-content {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-@media (min-width: 800px) {
-    .page-content {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 .card {
     position: relative;
     display: flex;
@@ -30,18 +18,6 @@
     background-color: whitesmoke;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
-
-/* @media (max-height: 731px) {
-    .card {
-        height: 300px
-    }
-}
-
-@media (max-height: 700px) {
-    .card {
-        height: 265px
-    }
-} */
 
 
 .card:before {
@@ -96,15 +72,16 @@
 .copy {
     font-family: var(--font-serif);
     font-size: 1.125rem;
-    font-style: italic;
     line-height: 1.35;
 }
 
 .btn {
     cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
     margin-top: 1.5rem;
     padding: 0.75rem 1.5rem;
-    font-size: 0.65rem;
+    font-size: 15px;
     font-weight: bold;
     letter-spacing: 0.025rem;
     text-transform: uppercase;
@@ -120,6 +97,30 @@
 .btn:focus {
     outline: 1px dashed yellow;
     outline-offset: 3px;
+}
+
+@media (min-width: 100px) {
+    .page-content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .page-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card {
+        height: 43vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        height: 86vh;
+    }
+    .page-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media (hover: hover) and (min-width: 600px) {

@@ -17,5 +17,5 @@ body {
 }
 
 ._main {
-  
+  font-family: var(--font-noto);
 }
