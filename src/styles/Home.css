@@ -34,7 +34,7 @@ body {
 }
 
 .home-bg-content-2.detail {
-    top: 50vh;
+    top: 45vh;
     text-align: left;
 }
 
@@ -50,10 +50,8 @@ body {
 .detail-rocket {
     font-family: var(--font-noto);
     border-bottom: 3px solid var(--cl4);
-    width: 400px;
     height: 41px;
     display: block ruby;
-    margin-right: 35px;
 }
 
 .home-bg {
@@ -98,6 +96,7 @@ body {
     border: 2px solid green;
     width: 50vw;
     text-align: center;
+    margin-top: 10vh;
 }
 
 .detail-stage {
@@ -105,6 +104,13 @@ body {
     padding-right: 100px;
     display: flex;
     justify-content: space-between;
+    font-size: 20px;
+}
+
+.detail-descript{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
 }
 
 .home-box-elon {

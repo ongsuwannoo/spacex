@@ -7,8 +7,8 @@ function Rockets() {
   {
     const [option, setOption] = useState({ limit: 10 });
     const [isLoading, setIsLoading] = useState(false);
-    const [launches, error] = useLaunches(option);
 
+    const [launches, error] = useLaunches(option);
 
     const [limit, setLimit] = useState(10);
     const [sort, setSort] = useState("flight_number");
@@ -37,6 +37,10 @@ function Rockets() {
       setLaunch_success(e.target.value);
     }
 
+    const handleChangeRocketname = (e) => {
+      setRocket_name(e.target.value);
+    }
+
     const handleChangePage = async (evt) => {
       evt.preventDefault();
       setIsLoading(true);
@@ -54,7 +58,6 @@ function Rockets() {
           offset: handlePage,
         })
       }
-
 
       if (handlePage === 0) {
         setPage({
@@ -106,9 +109,6 @@ function Rockets() {
                   <option value="launch_year">Year</option>
                 </select>
               </td>
-
-
-
               {/* <td>order:</td>
               <td>
                 <select
@@ -121,12 +121,16 @@ function Rockets() {
               </td> */}
               <td>
                 <label>Rocket Name</label>
-                <input
-                  type="text"
+                <select
                   value={rocket_name}
-                  onChange={e => setRocket_name(e.target.value)}
-                  placeholder="Falcon 1"
-                />
+                  onChange={handleChangeRocketname}
+                >
+                  <option value="" selected="selected">All</option>
+                  <option value="Falcon 1">Falcon 1</option>
+                  <option value="Falcon 9">Falcon 9</option>
+                  <option value="Falcon Heavy">Falcon Heavy</option>
+                  <option value="Starship">Starship</option>
+                </select>
               </td>
               <td>
                 <label>Success</label>
@@ -163,7 +167,6 @@ function Rockets() {
                   placeholder="10"
                 />
               </td>
-              
               <td><input type="submit" value="Submit" /></td>
             </tr>
           </table>

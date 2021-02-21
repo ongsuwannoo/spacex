@@ -49,51 +49,50 @@ export default (props) => {
                 </div>
                 <div className="home-bg-content-2 detail">
                   <p>
-                    <label className="f-5 detail-rocket">
+                    <div className="f-5 detail-rocket">
                       Detail
-                    </label>
+                    </div>
                   </p>
-                  <p>
-                    <label className="f-5 detail-descript">
-                      <label>HEIGHT</label>
-                      <label>
-                        {details.second_stage.payloads.composite_fairing.height.meters} m /
-                        {details.second_stage.payloads.composite_fairing.height.feet} ft
-                      </label>
-                    </label>
-                    <br />
-                  </p>
-                  <p></p>
-                  <p>
-                    <label className="f-5 detail-descript">
-                      DIAMETER {details.diameter.meters} m / {details.diameter.feet} ft
-                </label>
-                    <br />
-                  </p>
-                  <p></p>
-                  <p>
-                    <label className="f-5 detail-descript">
-                      MASS {details.mass.kg} kg / {details.mass.lb} lb
-                    </label>
-                    <br />
-                  </p>
-                  <p></p>
-                  <p>
-                    <label className="f-5 detail-descript">
-                      PAYLOAD WEIGHTS
-                    </label>
-                    <br />
-                  </p>
-                  <p className="payload-detail">
+                  <div className="f-5 detail-descript">
+                    <div>HEIGHT</div>
+                    <div>
+                      {details.second_stage.payloads.composite_fairing.height.meters} m /
+                      {details.second_stage.payloads.composite_fairing.height.feet} ft
+                    </div>
+                  </div>
+                  <div className="f-5 detail-descript">
+                    <div>
+                      DIAMETER
+                    </div>
+                    <div>
+                      {details.diameter.meters} m / {details.diameter.feet} ft
+                    </div>
+                  </div>
+                  <div className="f-5 detail-descript">
+                    <div>
+                      MASS
+                    </div>
+                    <div>
+                      {details.mass.kg} kg / {details.mass.lb} lb
+                    </div>
+                  </div>
+                  <div className="f-5 detail-descript">
+                    PAYLOAD WEIGHTS
+                  </div>
+                  <div className="payload-detail">
                     {details.payload_weights.map(payload => (
                       <>
-                        <label className="f-5">
-                          {payload.name} {payload.kg} kg / {payload.lb} lb
-                        </label>
-                        <br />
+                        <div className="f-5 detail-descript">
+                          <div>
+                            {payload.name}
+                          </div>
+                          <div>
+                            {payload.kg} kg / {payload.lb} lb
+                          </div>
+                        </div>
                       </>
                     ))}
-                  </p>
+                  </div>
                 </div>
               </div>
 
