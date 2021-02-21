@@ -59,11 +59,11 @@ const Home = () => {
               </div>
             </div>
 
-            <img className="home-bg" src='/spacex/media/bg-home.jpg' />
+            <img className="home-bg" src="https://pbs.twimg.com/profile_banners/34743251/1596331248/1500x500" />
           </div>
           <div className="home-content">
             <div className="home-box-elon">
-              <img className="home-elon" src='/spacex/media/Elon_Musk.jpg' />
+              <img className="home-elon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Elon_Musk_Royal_Society.jpg/1280px-Elon_Musk_Royal_Society.jpg" />
             </div>
             <div className="home-box-info">
               <div className="home-info-detail">
@@ -71,13 +71,13 @@ const Home = () => {
               </div>
               <div className="home-info-contact">
                 <a href={info.links.flickr} target="_blank">
-                  <img src="/spacex/icon/flickr.png" />
+                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/flickr.png`} />
                 </a>
                 <a href={info.links.website} target="_blank">
-                  <img src="/spacex/icon/globe.png" />
+                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/globe.png`} />
                 </a>
                 <a href={info.links.twitter} target="_blank">
-                  <img src="/spacex/icon/twitter.png" />
+                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/twitter.png`} />
                 </a>
               </div>
             </div>

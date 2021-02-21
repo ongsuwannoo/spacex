@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import {
   Route,
   Switch,
 } from 'react-router-dom';
-import Home from '../pages/Home';
-import Rockets from '../pages/Rockets';
-import Launches from '../pages/Launches';
-import NoMatch from '../pages/NoMatch';
-import RocketDetail from "../pages/RocketDetail";
-import LauncheDetail from "../pages/LauncheDetail";
+
+const Home = lazy(() => import('../pages/Home.js'));
+const Launches = lazy(() => import('../pages/Launches.js'));
+const NoMatch = lazy(() => import('../pages/NoMatch.js'));
+const RocketDetail = lazy(() => import('../pages/RocketDetail.js'));
+const LauncheDetail = lazy(() => import('../pages/LauncheDetail.js'));
 
 function Routes() {
   return (

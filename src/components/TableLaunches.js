@@ -30,7 +30,7 @@ export default ({ launches, error, isLoading }) => {
               <td>{launche.rocket.rocket_name}</td>
               <td>{launche.launch_year}</td>
               <td>{launche.launch_success ? 'Success' : 'Failed'}</td>
-              <td><NavLink className="" to={`${url}/detail/${launche.flight_number}`}><img style={{width:"20px",}} src="/spacex/icon/information.png" /></NavLink></td>
+              <td><NavLink className="" to={`${url}/detail/${launche.flight_number}`}><img style={{width:"20px",}} src={`${process.env.PUBLIC_URL}/spacex/icon/information.png`} /></NavLink></td>
             </tr>
           ))
       }
