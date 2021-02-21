@@ -27,13 +27,13 @@ export default () => {
             ? <p>Error fetching Info: {error}</p>
             : detail.links.flickr_images.length == 0
               ? <>
-                <p className="f-3">{detail.mission_name} - Mission {detail.launch_success ? 'Success' : 'Failed'}</p>
+                <p className="f-3">{detail.mission_name} - Mission <span style={{color:"var(--cl4)"}}>{detail.launch_success ? 'Success' : 'Failed'}</span></p>
                 <p>{detail.details}</p>
                 <div className="img-tag"><img src={[detail.links.mission_patch_small]}></img></div>
 
               </>
               : <>
-                <p className="f-3">{detail.mission_name} - Mission {detail.launch_success ? 'Success' : 'Failed'}</p>
+                <p className="f-3">{detail.mission_name} - Mission <span style={{color:"var(--cl4)"}}>{detail.launch_success ? 'Success' : 'Failed'}</span></p>
                 <p>{detail.details}</p>
                 <div className="img-tag"><Slider images={detail.links.flickr_images} /></div>
 

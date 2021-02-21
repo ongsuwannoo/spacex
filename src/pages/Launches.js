@@ -167,7 +167,7 @@ function Rockets() {
                   placeholder="10"
                 />
               </td>
-              <td><input type="submit" value="Submit" /></td>
+              <td><input className="btn" type="submit" value="View" /></td>
             </tr>
           </table>
         </form>

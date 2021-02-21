@@ -1,5 +1,6 @@
 body {
     overflow-x: hidden;
+    color:
 }
 
 .box {
@@ -29,7 +30,7 @@ body {
     color: white;
     top: 50px;
     margin-right: 35px;
-    font-family: 'Cardo';
+    /* font-family: 'Cardo'; */
     text-align: right;
 }
 
@@ -86,17 +87,21 @@ body {
     padding: 0;
     display: flex;
     justify-content: space-evenly;
-    border: 2px solid;
     width: 99vw;
     height: 50vh;
     margin-right: 50px;
 }
 
 .home-info-detail.stage-rocket {
-    border: 2px solid green;
     width: 50vw;
     text-align: center;
     margin-top: 10vh;
+}
+.line-tall {
+    width: 3px;
+    height: 250px;
+    margin: 8vh 0;
+    background-color: var(--cl2);
 }
 
 .detail-stage {
