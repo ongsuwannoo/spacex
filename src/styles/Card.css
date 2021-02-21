@@ -86,17 +86,18 @@
     letter-spacing: 0.025rem;
     text-transform: uppercase;
     color: white;
-    background-color: black;
+    background-color: var(--cl2);
     border: none;
+
 }
 
 .btn:hover {
-    background-color: #0d0d0d;
+    background-color: white;
+    color: var(--cl2);
 }
 
-.btn:focus {
-    outline: 1px dashed yellow;
-    outline-offset: 3px;
+.btn:active {
+    background-color: var(--cl4);
 }
 
 @media (min-width: 100px) {

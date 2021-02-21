@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useRocketsId } from '../utils/useAPIs';
 import Slider from '../components/Slider';
 import { numberWithCommas } from '../utils/functions';
+import { NavLink } from "react-router-dom";
 
 export default (props) => {
 
@@ -16,7 +17,7 @@ export default (props) => {
         : (
           <div className="box rocket-detail-box">
             <div className="box-bg">
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative", textShadow: "2px 4px rgba(0, 0, 0, .08)" }}>
                 <div className="home-bg-content-1 detail">
                   <p>
                     <label className="f-3 rocket-name">
@@ -49,7 +50,7 @@ export default (props) => {
                 </div>
                 <div className="home-bg-content-2 detail">
                   <p>
-                    <div className="f-5 detail-rocket">
+                    <div className="f-4 detail-rocket">
                       Detail
                     </div>
                   </p>
@@ -99,9 +100,9 @@ export default (props) => {
               <img className="home-bg rocket-detail" src={details.flickr_images[1]} />
               <div className="home-content rocket">
                 <div className="home-info-detail stage-rocket">
-                  <div className="f-4">First Stage</div>
+                  <div className="f-3">First Stage</div>
                   <div className="detail-stage">
-                    <div>Number Of Engunes</div>
+                    <div>Number Of Engines</div>
                     <div>
                       {details.first_stage.engines}
                     </div>
@@ -128,8 +129,37 @@ export default (props) => {
                     </div>
                   </div>
                 </div>
+                <div className="line-tall">
+                </div>
                 <div className="home-info-detail stage-rocket">
-                  <div className="f-4">Second Stage</div>
+                  <div className="f-3">Second Stage</div>
+                  <div className="detail-stage">
+                    <div>Number Of Engines</div>
+                    <div>
+                      {details.first_stage.engines}
+                    </div>
+                  </div>
+
+                  <div className="detail-stage">
+                    <div>Fuel</div>
+                    <div>
+                      {details.second_stage.fuel_amount_tons} tons
+                    </div>
+                  </div>
+
+                  <div className="detail-stage">
+                    <div>Thrust</div>
+                    <div>
+                      {details.second_stage.thrust.kN} kN / {details.second_stage.thrust.lbf} lbf
+                    </div>
+                  </div>
+                  {/* <div className="detail-stage"> */}
+                    <div className="link-to-rocket" style={{ display: "flex", flexDirection: "row-reverse", paddingRight: "100px"}}>
+                      <NavLink to={`/rockets`}>
+                        <p className="f-4"><img src="/spacex/icon/first.svg"></img> BACK</p>
+                      </NavLink>
+                    </div>
+                  {/* </div> */}
                 </div>
               </div>
             </div>

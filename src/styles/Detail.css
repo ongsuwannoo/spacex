@@ -2,6 +2,7 @@
     display: flex;
     width: 100vw;
     margin: 1vw;
+    color: var(--cl2);
 }
 .launche-name-box{
     display: flex;
@@ -64,15 +65,18 @@
     font-size: 1.5vw;
 }
 .launch-detail-link a:hover{
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--cl4);
     top: 1px;
+    transition: 0.5s;
+    font-weight: bold;
 }
 .link-to-rocket a{
     text-decoration: none;
-
+    color: var(--cl2);
 }
 .link-to-rocket a:hover{
     text-decoration: none;
     color: var(--cl4);
+    transition: 0.5s;
 }
