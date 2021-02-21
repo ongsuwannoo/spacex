@@ -6,11 +6,11 @@ import { numberWithCommas } from '../utils/functions';
 const Home = () => {
 
   const [info, error] = useInfo();
-
-  document.body.style.backgroundColor = "white";
-
+  
   if (info === null) {
     document.body.style.backgroundColor = "black";
+  } else {
+    document.body.style.backgroundColor = "white";
   }
 
   return (
