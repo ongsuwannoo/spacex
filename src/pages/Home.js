@@ -2,12 +2,16 @@ import React from 'react';
 import { useInfo } from '../utils/useAPIs';
 import '../styles/Home.css';
 import { numberWithCommas } from '../utils/functions';
-import { NavLink, useRouteMatch } from 'react-router-dom';
 
 const Home = () => {
 
   const [info, error] = useInfo();
-  const { path, url } = useRouteMatch();
+
+  document.body.style.backgroundColor = "white";
+
+  if (info === null) {
+    document.body.style.backgroundColor = "black";
+  }
 
   return (
     <>
