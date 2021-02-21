@@ -134,7 +134,7 @@ function Rockets() {
                   value={launch_success}
                   onChange={handleChangeSuccess}
                 >
-                  <option value="" selected="selected" disabled="disabled">Success or Failed</option>
+                  <option value="" selected="selected">Success or Failed</option>
                   <option value="true">Success</option>
                   <option value="false">Failed</option>
                 </select>
