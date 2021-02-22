@@ -167,7 +167,7 @@ function Rockets() {
                   placeholder="10"
                 />
               </td>
-              <td><input className="btn" type="submit" value="View" /></td>
+              <td><input className="btn" type="submit" value="View"  /></td>
             </tr>
           </table>
         </form>
@@ -178,15 +178,15 @@ function Rockets() {
         />
         <form onSubmit={handleChangePage} className="f-4 page">
           <div className="page">
-            <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)}><b>FIRST</b></button>
-            <button type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>
-              <img src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%" }} />
+            <button name="first" type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)}><b>FIRST</b></button>
+            <button name="pre" type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>
+              <img alt="pre"  src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%" }} />
             </button>
             {' ' + ((page.offset / 10) + 1) + ' '}
-            <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>
-              <img src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%", transform: "rotate(180deg)" }} />
+            <button name="next" type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>
+              <img alt="next" src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%", transform: "rotate(180deg)" }} />
             </button>
-            <button type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)}><b>LAST</b></button>
+            <button name="last" type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)}><b>LAST</b></button>
           </div>
         </form>
       </div>

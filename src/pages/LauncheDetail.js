@@ -83,7 +83,7 @@ export default () => {
                 </a>
                 <div className="link-to-rocket">
                   <NavLink to={`/rockets/detail/${detail.rocket.rocket_id}`}>
-                    <p className="f-4">{detail.rocket.rocket_name} <img src="/spacex/icon/first.svg" style={{ transform: "rotate(180deg)" }}></img></p>
+                    <p className="f-4">{detail.rocket.rocket_name} <img src={`${process.env.PUBLIC_URL}/spacex/icon/first.svg`} style={{ transform: "rotate(180deg)" }}></img></p>
                   </NavLink>
                 </div>
               </div>
