@@ -45,6 +45,7 @@
     padding: 1.5vw;
     font-family: 'Cardo';
     height: 1.5vw;
+    width: 100%;
 }
 .launch-detail tr:nth-child(odd) {
     font-weight: bold;
