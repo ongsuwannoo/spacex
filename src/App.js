@@ -6,7 +6,7 @@ import { RequestProvider } from "./utils/requestContainer";
 import './App.css';
 
 const App = () => (
-  <Router basename="/spacex">
+  <Router basename="/">
     <RequestProvider>
       <Navbar />
       <Routes />

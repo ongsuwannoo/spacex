@@ -1,0 +1,19 @@
+# fly.toml app configuration file generated for spacex-react on 2023-06-15T23:59:03+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "spacex-react"
+primary_region = "sin"
+kill_signal = "SIGTERM"
+
+[env]
+  PORT = "3000"
+  GENERATE_SOURCEMAP = false
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0

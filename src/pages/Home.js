@@ -59,7 +59,7 @@ const Home = () => {
               </div>
             </div>
 
-            <img className="home-bg" src="https://pbs.twimg.com/profile_banners/34743251/1596331248/1500x500" />
+            <img className="home-bg" src="https://thehill.com/wp-content/uploads/sites/2/2023/01/spacex_falconheavy.jpeg?w=1280" />
           </div>
           <div className="home-content">
             <div className="home-box-elon">
