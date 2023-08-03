@@ -1,13 +1,10 @@
 import React from "react";
 import {
-  NavLink,
-  useRouteMatch
+  NavLink
 } from "react-router-dom";
 import '../styles/Card.css';
 
 export default (props) => {
-
-  let { path, url } = useRouteMatch();
 
   return (
     <>
@@ -15,7 +12,7 @@ export default (props) => {
         <div className="content">
           <h2 className="title">{props.rocket.rocket_name}</h2>
           <p className="copy">{props.rocket.description}</p>
-          <NavLink className="btn" to={`${url}/detail/${props.rocket.rocket_id}`}>View</NavLink>
+          <NavLink className="btn" to={`./detail/${props.rocket.rocket_id}`} exact={true}>View</NavLink>
         </div>
         <style>
           {`\

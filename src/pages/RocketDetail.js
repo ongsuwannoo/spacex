@@ -157,7 +157,7 @@ export default (props) => {
                   {/* <div className="detail-stage"> */}
                     <div className="link-to-rocket" style={{ display: "flex", flexDirection: "row-reverse", paddingRight: "100px"}}>
                       <NavLink to={`/rockets`}>
-                        <p className="f-4"><img src={`${process.env.PUBLIC_URL}/spacex/icon/first.svg`}></img> BACK</p>
+                        <p className="f-4"><img src={`/spacex/icon/first.svg`}></img> BACK</p>
                       </NavLink>
                     </div>
                   {/* </div> */}

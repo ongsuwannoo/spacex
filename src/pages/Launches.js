@@ -180,11 +180,11 @@ function Rockets() {
           <div className="page">
             <button name="first" type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(0)}><b>FIRST</b></button>
             <button name="pre" type="submit" disabled={page.offset == 0} onClick={() => setHandlePage(-1)}>
-              <img alt="pre"  src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%" }} />
+              <img alt="pre"  src={`/spacex/icon/back.svg`} style={{ width: "50%" }} />
             </button>
             {' ' + ((page.offset / 10) + 1) + ' '}
             <button name="next" type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(1)}>
-              <img alt="next" src={`${process.env.PUBLIC_URL}/spacex/icon/back.svg`} style={{ width: "50%", transform: "rotate(180deg)" }} />
+              <img alt="next" src={`/spacex/icon/back.svg`} style={{ width: "50%", transform: "rotate(180deg)" }} />
             </button>
             <button name="last" type="submit" disabled={page.offset == 110} onClick={() => setHandlePage(110)}><b>LAST</b></button>
           </div>

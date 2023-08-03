@@ -71,13 +71,13 @@ const Home = () => {
               </div>
               <div className="home-info-contact">
                 <a href={info.links.flickr} target="_blank">
-                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/flickr.png`} />
+                  <img src={`/spacex/icon/flickr.png`} />
                 </a>
                 <a href={info.links.website} target="_blank">
-                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/globe.png`} />
+                  <img src={`/spacex/icon/globe.png`} />
                 </a>
                 <a href={info.links.twitter} target="_blank">
-                  <img src={`${process.env.PUBLIC_URL}/spacex/icon/twitter.png`} />
+                  <img src={`/spacex/icon/twitter.png`} />
                 </a>
               </div>
             </div>

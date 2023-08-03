@@ -1,17 +1,19 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Routes from './routes/routes';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter  } from 'react-router-dom';
 import { RequestProvider } from "./utils/requestContainer";
 import './App.css';
 
+// const basename = process.env.NODE_ENV === 'production' ? "/spacex" : '/';
+
 const App = () => (
-  <Router basename="/">
+  <BrowserRouter basename={"/"}>
     <RequestProvider>
       <Navbar />
       <Routes />
     </RequestProvider>
-  </Router>
+  </BrowserRouter>
 );
 
 export default App;

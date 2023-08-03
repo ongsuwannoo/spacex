@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import {
   NavLink,
-  useRouteMatch
+  useMatch
 } from "react-router-dom";
 import Loading from '../components/Loading';
 
 export default ({ launches, error, isLoading }) => {
-  let { path, url } = useRouteMatch();
 
   return (
     <table className="tableOutput">
@@ -30,7 +29,7 @@ export default ({ launches, error, isLoading }) => {
               <td>{launche.rocket.rocket_name}</td>
               <td>{launche.launch_year}</td>
               <td>{launche.launch_success ? 'Success' : 'Failed'}</td>
-              <td><NavLink className="" to={`${url}/detail/${launche.flight_number}`}><img alt="Detail" style={{width:"20px",}} src={`${process.env.PUBLIC_URL}/spacex/icon/information.png`} /></NavLink></td>
+              <td><NavLink className="" to={`./detail/${launche.flight_number}`}><img alt="Detail" style={{ width: "20px", }} src={`/spacex/icon/information.png`} /></NavLink></td>
             </tr>
           ))
       }

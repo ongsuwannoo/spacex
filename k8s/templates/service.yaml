@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "generic-deployment.fullname" . }}
+  labels:
+    {{- include "generic-deployment.labels" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: {{ include "generic-deployment.fullname" . }}
+    meta.helm.sh/release-namespace: {{ include "generic-deployment.namespace" .  }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "generic-deployment.selectorLabels" . | nindent 4 }}

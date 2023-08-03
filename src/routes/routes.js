@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import {
   Route,
-  Switch,
+  Routes,
 } from 'react-router-dom';
 import Loading from '../components/Loading.js';
 
@@ -12,31 +12,21 @@ const NoMatch = lazy(() => import('../pages/NoMatch.js'));
 const RocketDetail = lazy(() => import('../pages/RocketDetail.js'));
 const LauncheDetail = lazy(() => import('../pages/LauncheDetail.js'));
 
-function Routes() {
+function Router() {
   return (
     <Suspense fallback={<Loading />}>
       <div className='_main'>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/rockets/detail/:rocketId">
-            <RocketDetail />
-          </Route>
-          <Route path="/rockets">
-            <Rockets />
-          </Route>
-
-          <Route path="/launches/detail/:rauncheId">
-            <LauncheDetail />
-          </Route>
-          <Route path="/launches" component={Launches} />
-
-          <Route path="*" component={NoMatch} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/rockets/detail/:rocketId" element={<RocketDetail />} />
+          <Route path="/rockets" element={<Rockets />} />
+          <Route path="/launches/detail/:rauncheId" element={<LauncheDetail />} />
+          <Route path="/launches" element={<Launches />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
       </div>
     </Suspense>
   )
 };
 
-export default Routes;
+export default Router;

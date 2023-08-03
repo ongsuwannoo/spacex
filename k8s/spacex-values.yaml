@@ -1,0 +1,107 @@
+# Default values for generic-deployment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+image:
+  repository: ongsuwannoo/spacex
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "dev-2"
+imagePullSecrets: {}
+  # - name: harbor-crd
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+  # runAsNonRoot: true
+  # runAsUser: 1000
+# fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #     - ALL
+  # allowPrivilegeEscalation: false # prevent sudo, etc.
+  # privileged: false # prevent acting like host root
+  # readOnlyRootFilesystem: true
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: k8s.nocgy.com
+      paths:
+        - path: /spacex
+          pathType: Prefix
+  tls:
+    - secretName: wildcard-cert-opstella-tls
+      hosts:
+        - k8s.nocgy.com
+resources: {}
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
+containerPorts: 80
+healthCheck:
+  enabled: false
+  path: "/health"
+configMap:
+  enabled: false
+volumeMounts: {}
+  # - mountPath: /opt/ibm/wlp/output
+  #   name: config
+  # - mountPath: /logs
+  #   name: config
+volumes:
+  volumesEmptyDir: []
+    # - config
+env:
+  normal: 
+    - name: REACT_APP_BASENAME
+      value: /spacex
+    # - name: ENABLE_RATINGS
+    #   value: true
+    # - name: RATINGS_SERVICE
+    #   value: https://dev.bookinfo.tisco.opstella.in.th/ratings
+    # - name: ENABLE_EXTERNAL_BOOK_SERVICE
+    #   value: true
+    # - name: COMMIT_ID
+    #   value: CHANGME
+    # - name: STAR_COLOR
+    #   value: Red
+    - name: COMMIT_SHA
+      value: f211e56a
+extraEnv:
+  COMMIT_SHA: f211e56a

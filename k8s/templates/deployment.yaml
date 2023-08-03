@@ -1,0 +1,134 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "generic-deployment.fullname" . }}
+  labels:
+    {{- include "generic-deployment.labels" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: {{ include "generic-deployment.fullname" . }}
+    meta.helm.sh/release-namespace: {{ include "generic-deployment.namespace" .  }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "generic-deployment.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "generic-deployment.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "generic-deployment.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.containerPorts }}
+              protocol: TCP
+          {{- if .Values.volumeMounts}}
+          volumeMounts:
+            {{- range .Values.volumeMounts }}
+            - name: {{ .name }} 
+              mountPath: {{ .mountPath }}
+              {{- if .readOnly}}
+              readOnly: {{ .readOnly }} 
+              {{- end }}
+              {{- if .subPath}}
+              subPath: {{ .subPath }}
+              {{- end }}
+            {{- end}}
+          {{- end}}
+          {{- if .Values.healthCheck.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.healthCheck.path }}
+              port: http
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.healthCheck.path }}
+              port: http
+          startupProbe:
+            httpGet:
+              path: {{ .Values.healthCheck.path }}
+              port: http
+            failureThreshold: 30
+            periodSeconds: 15
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.command }}
+          command:
+            {{- range .Values.command }}
+            - {{ . }}
+            {{- end }}
+          {{- end }}
+          {{- if .Values.envFrom }}
+          envFrom:
+            {{- range .Values.envFrom.configMaps }}
+            - configMapRef:
+                name: {{ . }}
+            {{- end }}
+            {{- range .Values.envFrom.secrets }}
+            - secretRef:
+                name: {{ . }}
+            {{- end }}
+          {{- end }}
+          {{- if .Values.env }}
+          env:
+            {{- range .Values.env.normal }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+            {{- range .Values.env.secret }}
+            - name: {{ .name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .secretKeyRefName }}
+                  key: {{ .key }}
+            {{- end }}
+          {{- end }}
+      {{- if .Values.volumes}}
+      volumes:
+        {{- range .Values.volumes.volumesEmptyDir}}
+        - name: {{ . }}
+          emptyDir: {}
+        {{- end}}
+        {{- range .Values.volumes.volumesConfigMap}}
+        - name: {{ .name}}
+          configMap:
+            name: {{ .configMap.name}}
+        {{- end}}
+        {{- range .Values.volumes.volumesSecret}}
+        - name: {{ .name}}
+          secret:
+            secretName: {{ .secret.secretName}}
+            optional: {{ .secret.optional}}
+        {{- end}}
+      {{- end}}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
